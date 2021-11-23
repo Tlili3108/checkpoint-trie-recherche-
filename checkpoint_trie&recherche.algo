@@ -1,0 +1,44 @@
+PROCEDURE inser (n:INTEGER,tab:ARRAY_OF INTEGER)
+VAR
+    i,j,k : INTEGER;
+BEGIN
+    FOR i FROM 0 TO n-1 DO
+
+        j = i -1;
+        k = tab[i];
+    
+        WHILE (j >= 0 and tab[j] > k) DO
+            tab [j + 1] = tab[j];
+            j = j - 1;
+        END_WHILE
+    END_FOR
+END
+
+PROCEDURE read_tab (n:INTEGER, tab :ARRAY_OF INTEGER)
+VAR
+    i:INTEGER;
+    
+BEGIN
+    FOR i FROM 0 TO n-1  DO
+        Read (tab[i]);
+    END_FOR
+END
+PROCEDURE write_tab (n:INTEGER, tab :ARRAY_OF INTEGER)
+VAR
+    i:INTEGER;
+    
+BEGIN
+    FOR i FROM 0 TO n-1  DO
+        Write (tab[i]);
+    END_FOR
+END
+ALGORITHM Inser_read_write
+VAR
+    i,n : INTEGER;
+    tab : ARRAY_OF INTEGER;
+BEGIN
+    n:=tab.Length;
+    read_arr(n,tab);
+    insert(n,tab);
+    Write(n,tab);
+END
